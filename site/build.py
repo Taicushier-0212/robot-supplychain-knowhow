@@ -127,6 +127,7 @@ NAV = [
     ("末端", [
         ("总览", "/knowhow/06-end-effector/index.html"),
         ("灵巧手", "/knowhow/06-end-effector/dexterous-hand.html"),
+        ("选型对照", "/knowhow/06-end-effector/selection.html"),
     ]),
     ("标准件", [
         ("总览", "/knowhow/07-standard-parts/index.html"),

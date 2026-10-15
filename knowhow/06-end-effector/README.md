@@ -6,4 +6,6 @@
 
 | 小类 | 干什么 | 入口 |
 |---|---|---|
-| 灵巧手 | 抓取与精细作业 | [dexterous-hand.md](./dexterous-hand.md) |
+| 灵巧手 | 抓取与精细作业；选型对照见下 | [dexterous-hand.md](./dexterous-hand.md) |
+
+灵巧手再往下分：[选型对照](./selection.md)。

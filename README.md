@@ -8,6 +8,24 @@
 
 ---
 
+## 在线站点
+
+完整站点发布在 [GitHub Pages](https://taicushier-0212.github.io/robot-supplychain-knowhow/)。
+
+每次推送到 `main`，GitHub Actions 会执行 [`.github/workflows/pages.yml`](./.github/workflows/pages.yml)：安装 Markdown 渲染器、运行 `site/build.py` 生成 `site/dist`，再发布到 GitHub Pages。也可以在 Actions 页面手动运行这个 workflow。
+
+本地预览：
+
+```bash
+python -m pip install markdown
+python site/build.py
+python -m http.server 8765 --directory site/dist
+```
+
+然后打开 <http://localhost:8765/>。
+
+---
+
 ## 怎么用
 
 先看分类树，再往下钻具体料：

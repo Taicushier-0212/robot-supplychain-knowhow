@@ -6,6 +6,7 @@ import base64
 import html
 import json
 import mimetypes
+import posixpath
 import re
 import shutil
 from pathlib import Path
@@ -173,19 +174,19 @@ PAGE = """<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1220">
   <title>{title} · 机器人供应链</title>
-  <link rel="icon" href="/logo.svg">
+  <link rel="icon" href="{asset_prefix}logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="{asset_prefix}style.css">
 </head>
 <body>
   <header class="top">
     <button class="menu-btn" type="button">目录</button>
-    <a class="brand" href="/index.html">机器人供应链</a>
+    <a class="brand" href="{asset_prefix}index.html"><img src="{asset_prefix}logo.svg" alt="">机器人供应链</a>
     <nav>
-      <a href="/knowhow/index.html">知识库</a>
-      <a href="/docs/gates.html">放行门</a>
-      <a href="/playbooks/index.html">作业手册</a>
+      <a href="{asset_prefix}knowhow/index.html">知识库</a>
+      <a href="{asset_prefix}docs/gates.html">放行门</a>
+      <a href="{asset_prefix}playbooks/index.html">作业手册</a>
     </nav>
     <div class="spacer"></div>
     <button class="search-btn" type="button">搜索 ⌘K</button>
@@ -205,7 +206,8 @@ PAGE = """<!doctype html>
       <div class="hits"></div>
     </div>
   </div>
-  <script src="/app.js"></script>
+  <script>window.SITE_ROOT = "{asset_prefix}"</script>
+  <script src="{asset_prefix}app.js"></script>
 </body>
 </html>
 """
@@ -239,6 +241,35 @@ def map_url(url: str, src: Path) -> str:
     else:
         s = s + ".html"
     return "/" + s.lstrip("/") + suffix
+
+
+def page_prefix(url: str) -> str:
+    """Return the relative prefix from a generated page to the site root."""
+    depth = len(Path(url.lstrip("/")).parent.parts)
+    return "../" * depth or "./"
+
+
+def relative_url(url: str, current: str) -> str:
+    """Make generated internal links work from any GitHub Pages subdirectory."""
+    raw = url.strip()
+    if not raw or raw.startswith(("http://", "https://", "mailto:", "#", "?", "data:")):
+        return raw
+    path, _, anchor = raw.partition("#")
+    if not path.startswith("/"):
+        return raw
+    target = path.lstrip("/") or "index.html"
+    current_dir = Path(current.lstrip("/")).parent.as_posix() or "."
+    rel = posixpath.relpath(target, current_dir)
+    suffix = f"#{anchor}" if anchor else ""
+    return rel + suffix
+
+
+def relativize_html(text: str, current: str) -> str:
+    def attr(m: re.Match) -> str:
+        name, quote, url = m.group(1), m.group(2), m.group(3)
+        return f"{name}={quote}{relative_url(url, current)}{quote}"
+
+    return re.sub(r"(href|src)=(['\"])([^'\"]+)\2", attr, text)
 
 
 def rewrite(text: str, src: Path) -> str:
@@ -564,6 +595,7 @@ def main() -> None:
     shutil.copy(ROOT / "site" / "style.css", OUT / "style.css")
     shutil.copy(ROOT / "site" / "app.js", OUT / "app.js")
     shutil.copy(ROOT / "site" / "logo.svg", OUT / "logo.svg")
+    (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in ASSETS:
@@ -599,11 +631,12 @@ def main() -> None:
         nav_url = url if url in known else "/index.html"
         page = PAGE.format(
             title=html.escape(title),
-            sidebar=render_nav(nav_url),
-            crumb=crumb_for(url),
-            body=rendered,
-            pager=pager(url),
-            toc=toc_html(toc),
+            asset_prefix=page_prefix(url),
+            sidebar=relativize_html(render_nav(nav_url), url),
+            crumb=relativize_html(crumb_for(url), url),
+            body=relativize_html(rendered, url),
+            pager=relativize_html(pager(url), url),
+            toc=relativize_html(toc_html(toc), url),
         )
         dest.write_text(page, encoding="utf-8")
         collected[url] = {

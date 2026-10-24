@@ -28,7 +28,7 @@
 | **开发板 / 套件** | 开箱即用的评估板 | 样机可以；量产要问工规与锁料 |
 | **自研主板** | 芯片级贴片 | BSP、散热、EMC、改版周期 |
 
-口头「一块 RK3588 / 一块 Orin」可能是芯片、模组或整机。PO 写清 **平台系列 + 具体型号 + 内存 / 存储 + 形态**。
+口头「一块 RK3588 / 一块 Orin / 一块 Thor」可能是芯片、模组或整机。PO 写清 **平台系列 + 具体型号 + 内存 / 存储 + 形态**。
 
 ## 选型轴（所有主控通用）
 
@@ -60,10 +60,11 @@
 |---|---|---|
 | **RK（瑞芯微）** | SoC 系列，买芯片 / 核心板 / SBC | 成本敏感主脑或视觉副脑；RKNN 栈 |
 | **RDK（地瓜 / D-Robotics）** | 基于旭日等芯片的开发板与模组 | 机器人视觉原型、BPU 推理；TROS 生态 |
-| **Jetson Orin** | NVIDIA Orin 模组族（Nano / NX / AGX） | CUDA / TensorRT 视觉与具身模型 |
-| **Jetson AGX** | NVIDIA 的 AGX 外形与高端档（含 Xavier AGX 旧档、AGX Orin） | 高算力主脑、多传感器融合 |
+| **Jetson Orin** | NVIDIA Orin 模组族（Nano / NX / AGX Orin） | CUDA / TensorRT 视觉与具身模型 |
+| **Jetson AGX** | NVIDIA 大外形高端档（Xavier AGX 存量、AGX Orin） | 高算力主脑、多传感器融合 |
+| **Jetson Thor** | NVIDIA Blackwell 代（T5000 / T4000 等） | 物理 AI / 人形旗舰；生成式与多传感融合 |
 
-RK / RDK 偏国产边缘与机器人套件；Orin / AGX 偏 NVIDIA 生态。软件栈和主站方案往往比「TOPS 数字」更决定能不能上机。
+RK / RDK 偏国产边缘与机器人套件；Orin / AGX / Thor 偏 NVIDIA 生态。软件栈和主站方案往往比「TOPS 数字」更决定能不能上机。
 
 ---
 
@@ -194,7 +195,7 @@ Nano / NX **模组上通常无 eMMC**，系统盘多在载板 NVMe；AGX Orin �
   → Orin NX 16GB 优先；8GB 看模型与并发
 
 多路传感 + 大模型 / 重融合
-  → AGX Orin 32/64GB；热和电池一起算
+  → AGX Orin 32/64GB；热和电池一起算；再不够看 [Thor](#jetson-thor-全系列nvidia)
 
 工业温度、ECC、长供货
   → AGX Orin Industrial，不要用消费模组顶
@@ -231,19 +232,22 @@ AGX 相对 Orin NX：同代算力与内存带宽更高，体积、功耗、成�
 | **AGX Xavier / Xavier Industrial** | Volta 代；算力与生态旧于 Orin |
 | **Xavier NX** | 不是 AGX 外形，但是同代小模组；迁移时常被一起提到 |
 
-新开项目默认 **Orin 族**。Xavier 只用于：产线已冻结、证书未改、或明确消化库存。软件与 TensorRT 版本不要和 Orin 混为一谈。
+新开项目默认 **Orin 族**；要再上一代算力看 [Thor](#jetson-thor-全系列nvidia)。Xavier 只用于：产线已冻结、证书未改、或明确消化库存。软件与 TensorRT 版本不要和 Orin / Thor 混为一谈。
 
 ### AGX 怎么选
 
 ```text
-新项目要 NVIDIA 旗舰主脑
+新项目要 NVIDIA 旗舰主脑（Orin 代）
   → AGX Orin 32GB 起评；不够再上 64GB
 
 要工规 / ECC
   → AGX Orin Industrial
 
+要物理 AI / 生成式端侧、Orin 算力不够
+  → 转评 Jetson Thor（T5000 / T4000）
+
 仓库里还有 Xavier AGX
-  → 可维持；新 BOM 不要和无差别 Orin 混用同一镜像
+  → 可维持；新 BOM 不要和无差别 Orin / Thor 混用同一镜像
 ```
 
 ### AGX 常见坑
@@ -255,21 +259,72 @@ AGX 相对 Orin NX：同代算力与内存带宽更高，体积、功耗、成�
 
 ---
 
-## 四条产品线怎么横比（选型用，不是跑分）
+## Jetson Thor 全系列（NVIDIA）
 
-| | **RK** | **RDK** | **Orin Nano/NX** | **AGX Orin** |
-|---|---|---|---|---|
-| 生态 | RKNN、通用 Linux 核心板 | TROS / 地瓜 BPU | CUDA / TensorRT | 同左，更高配 |
-| 成本 | 相对低 | 套件价，看档位 | 中高 | 高 |
-| 典型角色 | 调度 + 中等视觉 | 机器人视觉原型 / 产品模组 | 主流 NVIDIA 边缘 | 重感知旗舰 |
-| 主站 | 常外加 | 看板载 CAN 等，EtherCAT 仍要验 | 常外加 | 常外加 |
-| 热 | 封闭机身要做 | 高档更烫 | NX 已要紧 | 最要紧 |
+**Jetson Thor** 是 Orin 之后的一代，GPU 为 **Blackwell**，面向物理 AI / 人形与端侧生成式。公开模组名常见 **Jetson T5000**、**Jetson T4000**；开发套件常叫 **Jetson AGX Thor Developer Kit**（套件里集成 T5000）。口头「上 Thor」要写清 **T5000 还是 T4000**，以及是模组还是开发套件。
+
+算力宣传多用 **FP4 / FP8 TFLOPS（稀疏 / 稠密）**，和 Orin 的 INT8 TOPS **不是同一把尺子**，不要直接除出「几倍」。下面是厂家常见口径，下单以当时数据手册为准。
+
+### 档位对照（口头）
+
+| 型号 | AI 性能（约，稀疏 FP4） | GPU / CPU（约） | 内存（约） | 功耗档（约） | 定位 |
+|---|---|---|---|---|---|
+| **Jetson T5000** | ~2070 FP4 TFLOPS | Blackwell ~2560 CUDA；14× Neoverse-V3AE | 128GB LPDDR5X，高带宽 | 约 40–130 W | **Thor 旗舰模组**；开发套件默认这颗 |
+| **Jetson T4000** | ~1200 FP4 TFLOPS | Blackwell 裁切；约 12× V3AE | 64GB LPDDR5X | 约 40–70 W | 同代降配；热与成本比 T5000 松一档 |
+| **AGX Thor Dev Kit** | 随所载模组（多为 T5000） | 同模组 | 套件常带大容量 NVMe | 按套件散热与电源 | 样机评估；量产仍要模组 + 载板 / 工规盒 |
+
+相对 AGX Orin：厂家口径大约 **数倍 AI 算力、更高能效**，代价是功耗上限更高（可到百瓦级）、供电与散热要按「小型工站」而不是「一块 NX」来做。多路高速相机 / 多 GbE（开发套件常见 QSFP 多路 25GbE）是卖点，载板没跟上等于浪费。
+
+### 怎么选 Thor
+
+```text
+人形 / 具身要跑端侧生成式、多传感融合，Orin 64GB 实测不够
+  → 评 T5000；先冻电池、DC-DC、风道/冷板
+
+要同代但功耗与成本更可控
+  → 评 T4000；确认模型与并发是否仍达标
+
+只是样机摸工具链
+  → AGX Thor 开发套件可以；量产料号另冻
+
+一般检测 + 调度、电池紧
+  → 先 Orin NX / AGX Orin；不要默认上 Thor
+```
+
+### Thor 必须另冻的字段
+
+- [ ] T5000 / T4000；功耗模式（如 MAXN / 限功率档）
+- [ ] 载板或工规盒：NVMe、网口（含高速光/电）、相机 HSB / MIPI、CAN
+- [ ] 输入电压范围与峰值电流；与整机 [电源](./power.md) 是否扛得住 40–130 W 级
+- [ ] 散热：强制风冷还是液冷/冷板；封闭胸腔是否允许
+- [ ] JetPack / 驱动版本；与 Orin 镜像是否隔离管理
+- [ ] 供货与配额；开发套件与量产模组交期分开问
+
+### Thor 常见坑
+
+- 用 Orin 的电池与散热预算硬上 T5000，运行中直接限功率或关机。
+- 把 FP4 TFLOPS 和 Orin INT8 TOPS 写成同一列对比给老板。
+- 只买开发套件，结构按套件外形开模，量产模组 + 载板装不进去。
+- 高速网口 / 多路相机座在载板上没做，算力闲置。
+- Orin 与 Thor 混用同一套未验证的驱动与模型包。
+
+---
+
+## 产品线怎么横比（选型用，不是跑分）
+
+| | **RK** | **RDK** | **Orin Nano/NX** | **AGX Orin** | **Thor** |
+|---|---|---|---|---|---|
+| 生态 | RKNN、通用 Linux 核心板 | TROS / 地瓜 BPU | CUDA / TensorRT | 同左，更高配 | Blackwell + 新一代 Jetson 栈 |
+| 成本 | 相对低 | 套件价，看档位 | 中高 | 高 | 更高 |
+| 典型角色 | 调度 + 中等视觉 | 机器人视觉原型 / 产品模组 | 主流 NVIDIA 边缘 | 重感知旗舰（Orin 代） | 物理 AI / 人形旗舰 |
+| 主站 | 常外加 | 看板载 CAN 等，EtherCAT 仍要验 | 常外加 | 常外加 | 常外加；IO 更丰富也要验 |
+| 热 / 电 | 封闭机身要做 | 高档更烫 | NX 已要紧 | 很紧 | **最紧**（可达百瓦级） |
 
 没有「全能第一」。先冻软件栈和接口，再冻系列与料号。
 
 ## 冻结清单（下单用）
 
-- [ ] 家族：RK / RDK / Orin / AGX（Xavier 仅存量）
+- [ ] 家族：RK / RDK / Orin / AGX / Thor（Xavier 仅存量）
 - [ ] 精确型号（含内存容量、Industrial / Super 等后缀）
 - [ ] 形态：芯片 / 核心板 / 开发板 / 套件 / 工控盒；载板型号
 - [ ] OS 与镜像版本；刷机方式
@@ -295,3 +350,4 @@ AGX 相对 Orin NX：同代算力与内存带宽更高，体积、功耗、成�
 - 主控与驱动器共地、共电源不清，总线一接就复位。
 - 相机和电机动力线绑在一起，视觉误码当「算力不够」。
 - RK / RDK / Jetson 模型与工具链不互通，切换平台当「换一块板」。
+- Orin 与 Thor 算力单位不同（INT8 TOPS vs FP4 TFLOPS），表格里硬比倍数。

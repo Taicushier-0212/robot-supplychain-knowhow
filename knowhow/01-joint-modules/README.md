@@ -11,7 +11,7 @@
 | 减速机 | 把电机高速小扭变成关节低速大扭 | [reducer/](./reducer/README.md) |
 | 无框力矩电机 | 电磁转矩；先分内转子 / 外转子 | [frameless-motor/](./frameless-motor/README.md) |
 | 编码器 | 单编 / 双编 / 伪双编；磁编 / 电感编 / 光编 | [encoder/](./encoder/README.md) |
-| 驱动器 | 电流环 / 速度环 / 位置环与总线 | [driver.md](./driver.md) |
+| 驱动器 | 电流环、总线、再生与抱闸时序 | [driver.md](./driver.md) |
 | 制动器 | 断电保持、防坠落 | [brake.md](./brake.md) |
 | 一体化关节 | 上述零件做成一个可采购单元 | [integrated-joint.md](./integrated-joint.md) |
 

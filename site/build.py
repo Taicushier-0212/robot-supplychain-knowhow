@@ -115,6 +115,7 @@ NAV = [
         ("接插件", [
             ("总览", f"{E}/connectors/index.html"),
             ("XT30（2+2）", f"{E}/connectors/xt30.html"),
+            ("GMSL", f"{E}/connectors/gmsl.html"),
         ]),
         ("算力 / 主控", f"{E}/compute.html"),
         ("电源模块", f"{E}/power.html"),

@@ -17,6 +17,7 @@
 | [元器件分类](./knowhow/README.md) | 七个大类总览 |
 | [关节模组](./knowhow/01-joint-modules/README.md) | 减速机、电机、编码、驱动 |
 | [G0–G5 放行门](./docs/gates.md) | 买料时每一步怎么过门 |
+| [供应链职位](./docs/roles.md) | 计划、采购、跟单、SQE、IQC、仓储各做什么 |
 | [作业手册](./playbooks/README.md) | 寻源、询价、准入、首件、来料和不合格闭环 |
 
 在线站点支持目录导航和 `Ctrl+K` 搜索。离线环境可以打开 [knowhow.html](./knowhow.html)。

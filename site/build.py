@@ -148,6 +148,7 @@ NAV = [
         ("G0–G5", "/docs/gates.html"),
         ("自制 vs 外购", "/docs/make-vs-buy.html"),
         ("RACI", "/docs/raci.html"),
+        ("职位", "/docs/roles.html"),
         ("质量", "/docs/quality.html"),
         ("成本与交期", "/docs/cost-leadtime.html"),
         ("风险", "/docs/risk.html"),

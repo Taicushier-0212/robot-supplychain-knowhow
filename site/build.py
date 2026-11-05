@@ -148,6 +148,7 @@ NAV = [
     ("流程", [
         ("总览", "/docs/index.html"),
         ("铁律", "/docs/principles.html"),
+        ("最小闭环", "/docs/ops-loop.html"),
         ("G0–G5", "/docs/gates.html"),
         ("自制 vs 外购", "/docs/make-vs-buy.html"),
         ("RACI", "/docs/raci.html"),

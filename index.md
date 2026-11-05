@@ -42,7 +42,7 @@ outline: deep
   <div><b>G5</b><span>关单与复盘</span></div>
 </div>
 
-完整条件和单据状态见 [G0–G5 放行门](/docs/gates.html)。询价、准入、首件、来料和不合格闭环在 [作业手册](/playbooks/index.html)。
+完整条件和单据状态见 [G0–G5 放行门](/docs/gates.html)。SOP / RACI / 授权 / 异常复盘怎么拼成一条链见 [最小闭环](/docs/ops-loop.html)。询价、准入、首件、来料和不合格闭环在 [作业手册](/playbooks/index.html)。
 
 ## 怎么读一页
 

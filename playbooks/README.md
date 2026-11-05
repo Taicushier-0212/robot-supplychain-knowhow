@@ -9,4 +9,6 @@
 | [rfq.md](./rfq.md) | G2 |
 | [first-article.md](./first-article.md) | G2 |
 | [incoming-inspection.md](./incoming-inspection.md) | G4 |
-| [ncr.md](./ncr.md) | 异常闭环 |
+| [ncr.md](./ncr.md) | 异常闭环（L1–L3，复盘关门） |
+
+总图（SOP / 状态机 / RACI / 授权 / 复盘怎么拼）：[最小闭环](../docs/ops-loop.md)。

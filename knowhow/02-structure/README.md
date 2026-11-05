@@ -9,6 +9,7 @@
 | 小类 | 干什么 | 入口 |
 |---|---|---|
 | CNC 机加 | 关节座、法兰、高精度承力件 | [cnc.md](./cnc.md)（[材料](./materials/README.md)：[铝](./materials/aluminum.md) · [镁](./materials/magnesium.md) · [钢](./materials/steel.md)） |
+| 公差与检测 | 尺寸、形位、粗糙度，以及卡尺和三坐标各管什么 | [tolerances.md](./tolerances.md) |
 | 钣金 | 盒体、支架、防护 | [sheet-metal/](./sheet-metal/README.md)（[折弯](./sheet-metal/bend.md) · [板材](./sheet-metal/material.md) · [连接](./sheet-metal/joining.md)） |
 | 型材 | Link、机架、快速改长度 | [extrusion.md](./extrusion.md) |
 | 压铸 | 小批壳体、复杂腔体 | [die-cast.md](./die-cast.md) |

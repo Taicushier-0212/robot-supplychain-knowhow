@@ -78,6 +78,7 @@ NAV = [
     ]),
     ("结构件", [
         ("总览", f"{S}/index.html"),
+        ("公差与检测", f"{S}/tolerances.html"),
         ("CNC 机加", f"{S}/cnc.html"),
         ("机加材料", [
             ("总览", f"{S}/materials/index.html"),

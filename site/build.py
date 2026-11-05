@@ -106,6 +106,7 @@ NAV = [
     ("电子器件", [
         ("总览", f"{E}/index.html"),
         ("PCB / SMT", f"{E}/pcb.html"),
+        ("电容", f"{E}/capacitors.html"),
         ("线束", f"{E}/harness.html"),
         ("线材", [
             ("总览", f"{E}/wire/index.html"),

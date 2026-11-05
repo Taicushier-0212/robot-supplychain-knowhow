@@ -8,5 +8,7 @@ alwaysApply: true
 用户在对话里问到的供应链、元器件、工艺、检测、选型口径（例如 ICT/FT、硬度、齿制、材料开模等），在解答清楚后**默认补进仓库对应 knowhow**（或新建细分页并挂到大类 README / `site/build.py` 侧栏），不要只停留在聊天里。
 
 - 文风对齐现有页：口语可扫读、有冻结清单与坑、不堆公司化空话
-- 改完 Markdown 后执行 `python site/build.py`，按仓库 Git 规则中文 commit 并 push
-- 用户明确说「先别写进仓库 / 只回答」时除外
+- 改完 Markdown 后执行 `python site/build.py`。能生成就把产物一并提交
+- 提交并推送前先对齐远端：`git fetch`，能快进就先快进。本地有改动就 commit，再 push 到 origin。origin 只保留用户自己的仓库 `https://github.com/Taicushier-0212/robot-supplychain-knowhow.git`，不推 Roboparty，不强推
+- 快进不了时：本地没有独有内容，就把 `main` 对齐到 `origin/main` 再把这次的改动提交推上去；两边都有独有提交则 merge 后再推。用户没明确说「覆盖」时不要 force-push
+- 用户明确说「先别写进仓库 / 只回答 / 先别推」时除外

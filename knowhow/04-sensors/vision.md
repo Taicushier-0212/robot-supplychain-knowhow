@@ -17,7 +17,7 @@ RGB、双目、深度、线激光等。镜头、触发、接口与线长一起�
 | **网口相机** | 远距、多机交换机 | 忘了带宽、供电（PoE）与同步 |
 | **GMSL（+ FAKRA 等）** | 数米级、活动、车规式相机串行 | 只写「GMSL」不写 SerDes、线、座子 |
 
-GMSL 的座子、线、芯片代数见 [GMSL 连接器](../03-electronics/connectors/gmsl.md)。
+GMSL 的座子、线、芯片代数见 [GMSL 连接器](../03-electronics/connectors/gmsl.md)。总线分层见 [总线](../03-electronics/buses.md)。
 
 ## 选型必须冻结
 

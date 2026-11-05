@@ -12,6 +12,7 @@
 | 电容 | MLCC、铝电解、钽、薄膜、超级电容 | [capacitors.md](./capacitors.md) |
 | 线束 | 动力线、信号线、整机互联 | [harness.md](./harness.md)（[线材 / AWG](./wire/README.md)） |
 | 接插件 | 可拆互连、防呆；XT30（2+2）、GMSL/FAKRA 等 | [connectors/](./connectors/README.md) |
+| 总线 | 板上、关节、相机、烧录各用哪一种 | [buses.md](./buses.md) |
 | 算力 / 主控 | 规划、推理、全身调度；RK / RDK / Orin / AGX / Thor 对照 | [compute.md](./compute.md) |
 | 电源模块 | 母线、DCDC、预充 | [power.md](./power.md) |
 

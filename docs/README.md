@@ -5,6 +5,7 @@
 | [principles.md](./principles.md) | 铁律与决策原则 |
 | [ops-loop.md](./ops-loop.md) | 最小闭环：SOP / 状态机 / RACI / 授权 / 异常 / 复盘 |
 | [gates.md](./gates.md) | G0–G5 与单据状态机 |
+| [process-engineering.md](./process-engineering.md) | 工艺工程：DFM/DFA/DFT、试产与量产切换 |
 | [make-vs-buy.md](./make-vs-buy.md) | 自制 vs 外购、打样规则 |
 | [cost-leadtime.md](./cost-leadtime.md) | 成本拆分与交期倒排 |
 | [quality.md](./quality.md) | Pass / Conditional / Fail · L1–L3 |

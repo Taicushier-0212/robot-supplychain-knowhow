@@ -6,5 +6,5 @@
 
 | 小类 | 干什么 | 入口 |
 |---|---|---|
-| 轴承 | 旋转副、交叉滚子等 | [bearings.md](./bearings.md) |
+| 轴承 | 交叉滚子、角接触、四点、薄壁球等怎么选 | [bearings.md](./bearings.md) |
 | 紧固件 | 螺丝、销、嵌件 | [fasteners.md](./fasteners.md) |

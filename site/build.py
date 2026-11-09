@@ -163,6 +163,7 @@ NAV = [
     ("作业手册", [
         ("总览", "/playbooks/index.html"),
         ("寻源", "/playbooks/sourcing.html"),
+        ("看图与估价", "/playbooks/drawing-quote.html"),
         ("询价", "/playbooks/rfq.html"),
         ("供应商准入", "/playbooks/supplier-qualification.html"),
         ("首件", "/playbooks/first-article.html"),

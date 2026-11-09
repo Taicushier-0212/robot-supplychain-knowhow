@@ -6,6 +6,7 @@
 |---|---|
 | [sourcing.md](./sourcing.md) | 寻源短名单 |
 | [supplier-qualification.md](./supplier-qualification.md) | G1 之后、G3 之前 |
+| [drawing-quote.md](./drawing-quote.md) | 看图抽成本项、按图估价（发 RFQ 前） |
 | [rfq.md](./rfq.md) | G2 |
 | [first-article.md](./first-article.md) | G2 |
 | [incoming-inspection.md](./incoming-inspection.md) | G4 |

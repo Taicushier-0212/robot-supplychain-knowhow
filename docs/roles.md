@@ -16,6 +16,8 @@
 | IQC | G4 | 按 PO 和图纸判定 Pass / Conditional / Fail |
 | 仓储 | G4 之后 | 未检隔离，只按检验结论收发，账和实物一致 |
 
+组织图上的 **QC / QE / QSM** 是常见质量缩写，和上表 IQC、SQE 怎么对应，见 [质量口径 · QC/QE/QSM](./quality.md#qc--qe--qsm以及和本仓席位怎么对)。
+
 物流和报关初期挂在跟单或仓储上，不单独立岗。进口件、电池运输变成每周的日常之后再拆。
 
 研发与量产之间的 **工艺工程**（DFM/DFA/DFT、试产、工艺冻结）不在上表供应链席位里，但和 SQE/IQC/采购咬合；口径见 [工艺工程](./process-engineering.md)。

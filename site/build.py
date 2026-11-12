@@ -85,6 +85,7 @@ NAV = [
             ("铝", f"{S}/materials/aluminum.html"),
             ("镁", f"{S}/materials/magnesium.html"),
             ("钢", f"{S}/materials/steel.html"),
+            ("材料种类", f"{S}/materials/grades.html"),
             ("淬火与热处理", f"{S}/materials/heat-treatment.html"),
         ]),
         ("钣金", [

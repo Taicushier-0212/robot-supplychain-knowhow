@@ -7,7 +7,7 @@
 | [gates.md](./gates.md) | G0–G5 与单据状态机 |
 | [process-engineering.md](./process-engineering.md) | 工艺工程：DFM/DFA/DFT、试产与量产切换 |
 | [make-vs-buy.md](./make-vs-buy.md) | 自制 vs 外购、打样规则 |
-| [cost-leadtime.md](./cost-leadtime.md) | 成本拆分、VAVE、交期倒排与滚动库存 |
+| [cost-leadtime.md](./cost-leadtime.md) | 成本拆分、VAVE、交期、滚动库存、DDP |
 | [quality.md](./quality.md) | Pass / Conditional / Fail · L1–L3 |
 | [risk.md](./risk.md) | 独家料、跳票、危货 |
 | [raci.md](./raci.md) | 跨部门谁拍板、空缺谁代签 |

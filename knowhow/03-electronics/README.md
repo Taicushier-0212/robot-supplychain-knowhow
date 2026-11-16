@@ -8,7 +8,7 @@
 
 | 小类 | 干什么 | 入口 |
 |---|---|---|
-| PCB / SMT | 裸板与贴片；SPI / AOI / X-Ray / ICT / FT | [pcb.md](./pcb.md) |
+| PCB / SMT | 裸板与贴片；SPI / AOI / X-Ray / ICT / FT / 下线检查 | [pcb.md](./pcb.md) |
 | 电容 | MLCC、铝电解、钽、薄膜、超级电容 | [capacitors.md](./capacitors.md) |
 | 线束 | 动力线、信号线、整机互联 | [harness.md](./harness.md)（[线材 / AWG](./wire/README.md)） |
 | 接插件 | 可拆互连、防呆；XT30（2+2）、GMSL/FAKRA 等 | [connectors/](./connectors/README.md) |

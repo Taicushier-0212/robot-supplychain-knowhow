@@ -6,7 +6,7 @@
 | [ops-loop.md](./ops-loop.md) | 最小闭环：SOP / 状态机 / RACI / 授权 / 异常 / 复盘 |
 | [gates.md](./gates.md) | G0–G5 与单据状态机 |
 | [process-engineering.md](./process-engineering.md) | 工艺工程：DFM/DFA/DFT、DFMEA、试产与量产切换 |
-| [make-vs-buy.md](./make-vs-buy.md) | 自制 vs 外购、打样规则 |
+| [make-vs-buy.md](./make-vs-buy.md) | 自制 vs 外购、打样规则；商务 PMF 与备料节奏 |
 | [cost-leadtime.md](./cost-leadtime.md) | 成本拆分、VAVE、交期、滚动库存、DDP |
 | [quality.md](./quality.md) | Pass / Conditional / Fail · L1–L3 |
 | [risk.md](./risk.md) | 独家料、跳票、危货 |
